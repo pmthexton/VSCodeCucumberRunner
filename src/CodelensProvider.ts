@@ -70,7 +70,7 @@ export class CodelensProvider implements vscode.CodeLensProvider {
         // Still using regex's as a bit of a hacky way to ensure
         // we don't register code lenses until they've added the
         // Feature: header to a file.
-        const findFeature = new RegExp(/^Feature/g);
+        const findFeature = new RegExp(/Feature: /g);
         const text = document.getText();
         let matches;
 
@@ -78,7 +78,7 @@ export class CodelensProvider implements vscode.CodeLensProvider {
             const line = document.lineAt(document.positionAt(matches.index).line);
             const indexOf = line.text.indexOf(matches[0]);
             const position = new vscode.Position(line.lineNumber, indexOf);
-            const range = document.getWordRangeAtPosition(position, new RegExp(/^Feature/g));
+            const range = document.getWordRangeAtPosition(position, new RegExp(/Feature: /g));
             if (range) {
                 if (this.runnerOptions[1] !== undefined) {
                     this.pushRunTask("Run Feature", range, line.lineNumber, this.runnerOptions[1]);

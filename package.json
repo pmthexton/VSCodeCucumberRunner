@@ -2,7 +2,7 @@
   "name": "cucumberrunner",
   "displayName": "CucumberRunner",
   "description": "Provide CodeLens elements for Cucumber Scenarios and Features",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://github.com/pmthexton/VSCodeCucumberRunner",
   "engines": {
     "vscode": "^1.58.0"
